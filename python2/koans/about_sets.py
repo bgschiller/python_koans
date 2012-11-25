@@ -30,17 +30,17 @@ class AboutSets(Koan):
         
         self.assertEqual('cdelo', self.chars_in(good_guy - bad_guy))
         self.assertEqual('acdelmnostu', self.chars_in(good_guy | bad_guy))
-        self.assertEqual(__, self.chars_in(good_guy & bad_guy))
-        self.assertEqual(__, self.chars_in(good_guy ^ bad_guy))
+        self.assertEqual('am', self.chars_in(good_guy & bad_guy))
+        self.assertEqual('cdelnostu', self.chars_in(good_guy ^ bad_guy))
 
     # ------------------------------------------------------------------
 
     def test_we_can_query_set_membership(self):
-        self.assertEqual(__, 127 in set([127, 0, 0, 1]))
-        self.assertEqual(__, 'cow' not in set('apocalypse now'))
+        self.assertEqual(True, 127 in set([127, 0, 0, 1]))
+        self.assertEqual(True, 'cow' not in set('apocalypse now'))
         
     def test_we_can_compare_subsets(self):
-        self.assertEqual(__, set('cake') <= set('cherry cake'))
-        self.assertEqual(__, set('cake').issubset(set('cherry cake')))
+        self.assertEqual(True, set('cake') <= set('cherry cake'))
+        self.assertEqual(True, set('cake').issubset(set('cherry cake')))
         
-        self.assertEqual(__, set('cake') > set('pie'))
+        self.assertEqual(False, set('cake') > set('pie'))

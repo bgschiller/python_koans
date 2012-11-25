@@ -19,8 +19,16 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
-
+    if min(a,b,c) <= 0:
+        raise TriangleError, 'No negative side lengths!'
+    if max(a,b,c) >= a + b + c - max(a,b,c):
+        raise TriangleError, 'Not a valid triangle!'
+    if a == b and b == c:
+        return 'equilateral'
+    elif a ==b or b == c or a == c:
+        return 'isosceles'
+    else:
+        return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
